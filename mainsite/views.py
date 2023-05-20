@@ -23,7 +23,7 @@ def blogs(request):
 def blogwrite(request):
     if request.method == 'POST':
         title = request.POST['title']
-        image = request.FILES.get('image')
+        image = request.POST.get('image')
         content = request.POST['content']
         # image = files.get("image")
 

@@ -43,7 +43,7 @@
                     <h1>Illustrate your cravings</h1>
                 </div>
                 <div class="blog ">
-                        <form method="POST" action="" class="formClass flex">
+                        <form method="POST" enctype="multipart/form-data" action="" class="formClass flex">
                             {% csrf_token %}
                             <textarea name="title" class="title" rows="1" placeholder="Title"></textarea>
                             <textarea name="content" class="desc" rows="5" placeholder="Description"></textarea>
