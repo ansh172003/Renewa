@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Illustrate your cravings</title>
-    <link rel="stylesheet" href="{% static 'blogwrite.css' %}">
+    <link rel="stylesheet" href="{% static './css/blogwrite.css' %}">
 </head>
 <body>
     <nav>
@@ -18,8 +19,8 @@
                     <li><a href="" class="hover-link underline"><i class="fa-sharp fa-solid fa-square-rss"></i> Blog</a></li>
                     <li><a href="" class="hover-link underline"><i class="fa-solid fa-bowl-food"></i> Food</a></li>
                     <li><a href="" class="hover-link underline"><i class="fa-solid fa-cart-shopping"></i> Groceries</a></li>
-                    <li><a href="" class="hover-link underline"><i class="fa-solid fa-mortar-pestle"></i> Recipe</a></li>
-                    <li><a href="" class="hover-link underline"><i class="fa-solid fa-heart"></i> Donate</a></li>
+                    <li><a href="{% url 'recipe' %}" class="hover-link underline"><i class="fa-solid fa-mortar-pestle"></i> Recipe</a></li>
+                    <li><a href="{% url 'donate' %}" class="hover-link underline"><i class="fa-solid fa-heart"></i> Donate</a></li>
                 </ul>
             </div>
             {% if user.is_authenticated %}
@@ -33,6 +34,8 @@
         {% endif %}
         </div>
     </nav>
+  {% include 'messages.html' %}
+
     <section class="recipe">
         <div class="container reciep-cont flex">
             <div class="leftblog">
@@ -40,13 +43,14 @@
                     <h1>Illustrate your cravings</h1>
                 </div>
                 <div class="blog ">
-                        <form action="" class="formClass flex">
-                            <textarea name="recipe" class="title" rows="1" placeholder="Title"></textarea>
-                            <textarea name="recipe" class="desc" rows="5" placeholder="Description"></textarea>
+                        <form method="POST" action="" class="formClass flex">
+                            {% csrf_token %}
+                            <textarea name="title" class="title" rows="1" placeholder="Title"></textarea>
+                            <textarea name="content" class="desc" rows="5" placeholder="Description"></textarea>
                             <label for="images" class="drop-container">
                                 <span class="drop-title">Drop files here</span>
                                 or
-                                <input type="file" id="images" accept="image/*" required>
+                                <input name = "image" type="file" id="images" accept="image/*" required>
                                 </label>
                             <div class="buttonSubmit flex">
                                 <button>Submit</button>
@@ -55,7 +59,7 @@
                 </div>
             </div>
             <div class="rightblog">
-                <img src="blog.png" alt="">
+                <img src="{% static './images/blog.png' %}" alt="">
             </div>
         </div>
     </section>

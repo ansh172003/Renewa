@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from .models import BlogModel
+from django.contrib import messages
+
 # Create your views here.
 
 def home(request):
@@ -18,6 +20,19 @@ def blogs(request):
     }
     return render(request,'mainsite/blogpost.html',data)
     
+def blogwrite(request):
+    if request.method == 'POST':
+        title = request.POST['title']
+        content = request.POST['content']
+        image = request.POST['image']
+
+        blogmodel = BlogModel(title=title, content=content, image=image)
+        blogmodel.save()
+        messages.success(request,'Thanks for reaching out! Will contact you soon.')
+
+        print(image)
+    
+    return render(request, 'mainsite/blogwrite.html')
 
 def food(request):
     pass

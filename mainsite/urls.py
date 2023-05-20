@@ -6,5 +6,5 @@ urlpatterns = [
     path('blog',views.blogs, name = "blog"),
     path('donate',views.donate, name = "donate"),
     path('recipe',views.recipe, name = "recipe"),
-
+    path('blogwrite',views.blogwrite, name = "blogwrite"),
 ]
