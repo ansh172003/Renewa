@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&family=Righteous&family=Roboto:wght@400;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --margine-cards:15px;
+    --padding-inline:10px;
+    --green1:#c5f3a4;
+    --green2:#47A992;
+}
+
+body{
+    font-family: 'Poppins',sans-serif;
+    color: black;
+    background-color: #fefefe;
+}
+h1{
+    font-size: 3rem;
+}
+h2{
+    font-size: 2rem;
+}
+h3{
+    font-size: 1.5rem;
+}
+p{
+    
+    font-size: 1.1rem;
+    color:black;
+    line-height: 1.8rem;
+}
+a{
+    text-decoration: none;
+    display: inline-block;
+    color: black;
+}
+
+/* <----Utility Clases----> */
+
+.font{
+    font-family: 'Righteous', cursive;
+}
+.flex{
+    display: flex;
+}
+ul{
+    list-style: none;
+}
+.container{
+    max-width: 1250px;
+    margin-inline: auto;
+    overflow: hidden;
+    
+}
+.line{
+    height: 1.5px;
+    opacity: 50%;
+    background-color: var(--image-blue1);
+} 
+.underline:hover{
+    padding-bottom: 1px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    width: fit-content;
+}
+
+
+/* Navbar */
+/* nav{
+    /* width: 100%;
+    position: absolute;
+} */
+.navbar{
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--padding-inline);
+}
+
+.left-nav h2 a{
+    color: var(--green1);
+    padding-left: 8px;
+    padding-right: 8px;
+}
+.mid-nav ul{
+    gap: 20px;
+}
+.left-nav,.mid-nav{
+    text-align: center;
+    background-color: black;
+    padding: 8px;
+    border-radius: 120px;
+}
+.hover-link{
+    color: white !important;
+    padding: 6px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.hover-link:hover{
+    font-weight: 700;
+}
+.right-nav{
+    text-align: center;
+    background-color: var(--green1);
+    padding: 12px;
+    border-radius: 120px;
+}
+
+.right-nav a{
+    color: var(--green2) !important;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+.right-nav a:hover{
+    font-weight: 700;
+}
+
+/*Ingridients */
+.reciep-cont{
+    justify-content: space-between;
+    align-items: center;
+    border: 5px solid;
+    border-radius: 18px;
+    height: calc(100vh - 100px);
+}
+.ingridients{
+    width: 100%;
+    
+}
+.ingridients form{
+    flex-direction: column;
+    gaP: 20PX;
+}
+
+form textarea{
+    max-width: 100%;
+    min-width: 100%;
+    max-height: 18rem;
+    width: 100%;
+    min-height: 10rem;
+    border-radius: 12px;
+    border-color: black;
+    padding: var(--padding-inline);
+    font-size: 1rem;
+    font-family: 'Poppins',sans-serif;
+    margin-bottom: 1rem;
+}
+
+
+.heading{
+    margin-top: 4rem;   
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+
+.leftrecipe{
+    max-width: 70%;
+    width: 70%;
+    height: 100%;
+    background-color: var(--green1);
+    padding: 35px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius : 15px;
+}
+
+.rightrecipe{
+    max-width: 30%;
+}
+.rightrecipe img{
+    width: 100%;
+}
+
+button{
+    background-color: black;
+    padding: 8px 45%;
+    border: none;
+    font-size: 1rem;
+    border-radius: 120px;
+    color: white;
+    font-family: 'Poppins',sans-serif;
+    
+}
+.buttonSubmit{
+    justify-content: center;
+}
+
+
