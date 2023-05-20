@@ -23,7 +23,8 @@ def food(request):
     pass
 
 def recipe(request):
-    pass
+    return render(request,'mainsite/recipe.html')
+    
 
 def grocery(request):
     pass

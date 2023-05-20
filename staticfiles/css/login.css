@@ -310,7 +310,8 @@ nav{
 /* <----Big banner----> */
 .big-banner{
     /* background-image: url(Asset/pexels-expect-best-323705-2.jpg);*/
-    background:linear-gradient(rgba(63, 178, 245, 0.4),rgba(254,254,254,0.1)), url(/static/images/pexels-expect-best-323705-2.jpg);
+    /* height: 100vh; */
+    background:linear-gradient(rgba(197, 243, 164, 0.4),rgba(254,254,254,0.1)), url(/static/images/loginBg.png);
     background-size: cover;
     background-position: fixed;
     background-repeat: no-repeat;
