@@ -5,7 +5,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 :root{
     --margine-cards:15px;
     --padding-inline:10px;
@@ -67,11 +66,9 @@ ul{
     border-bottom-width: 1px;
     width: fit-content;
 }
-
-
 /* Navbar */
 /* nav{
-    /* width: 100%;
+    width: 100%;
     position: absolute;
 } */
 .navbar{
@@ -118,83 +115,43 @@ ul{
 .right-nav a:hover{
     font-weight: 700;
 }
-
-/*Ingridients */
-.reciep-cont{
+.dpage-cont{
     justify-content: space-between;
     align-items: center;
-    border: 5px solid;
+    border: 5px solid black;
     border-radius: 18px;
-    height: calc(100vh - 100px);
 }
-.blog{
-    width: 100%;
-    
-}
-.blog form{
-    flex-direction: column;
-    gaP: 20PX;
-}
-
-form textarea{
-    max-width: 100%;
-    min-width: 100%;
-    width: 100%;
-    border-radius: 12px;
-    border-color: black;
-    padding: var(--padding-inline);
-    font-size: 1rem;
-    font-family: 'Poppins',sans-serif;
-    margin-bottom: 1rem;
-}
-.title{
-    min-height: 3rem;
-    max-height: 3rem;
-}
-
-.desc{
-    min-height: 10rem;
-    height: 12rem;
-    max-height: 14rem;
-}
-
-.heading{
-    margin-top: 4rem;   
-    text-align: center;
-    margin-bottom: 1rem;
-}
-
-
-.leftblog{
-    max-width: 70%;
-    width: 70%;
-    height: 100%;
+.left{
+    width: 65%;
     background-color: var(--green1);
     background-image: url(asset32.png);
     background-size: cover;
-    background-repeat: repeat;
-    padding: 35px;
-    border-top-left-radius: 15px;
-    border-bottom-left-radius : 15px;
-}
+    padding: 150px;
+    border-top-left-radius:15px ;
+    border-bottom-left-radius: 15px;
 
-.rightblog{
-    max-width: 30%;
 }
-.rightblog img{
-    width: 100%;
+.right{
+    width: 35%;
 }
-
 button{
     background-color: black;
-    padding: 8px 45%;
+    padding: 10px 12px;
     border: none;
-    font-size: 1rem;
     border-radius: 120px;
     color: white;
     font-family: 'Poppins',sans-serif;
-    
 }
-.buttonSubmit{
-    justify-content: center;
+.address{
+    flex-direction: column;
+
+}
+.address input{
+    padding: var(--padding-inline);
+    font-size: 1rem;
+    border-radius: 12px;
+
+}
+.right img{
+    width: 100%;
 }
