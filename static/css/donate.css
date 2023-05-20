@@ -124,7 +124,7 @@ ul{
 .left{
     width: 65%;
     background-color: var(--green1);
-    background-image: url(assets/asset\ 32.png);
+    background-image: url(asset32.png);
     background-size: cover;
     padding: 150px;
     border-top-left-radius:15px ;
