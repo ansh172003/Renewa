@@ -23,9 +23,9 @@ def blogs(request):
 def blogwrite(request):
     if request.method == 'POST':
         title = request.POST['title']
-        files = request.FILES
+        image = request.FILES.get('image')
         content = request.POST['content']
-        image = files.get("image")
+        # image = files.get("image")
 
         blogmodel = BlogModel(title=title, content=content, image=image)
         blogmodel.save()
