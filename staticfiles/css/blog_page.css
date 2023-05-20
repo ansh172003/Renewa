@@ -67,17 +67,16 @@
     border-radius: 12px;
 }
 .headers{
-    position: sticky;
-    top:0;
+    position: fixed;
     text-align: center;
-   background-color: #fefefe;
+    background-color: #fefefe;
+    width: 25.6%;
     border-radius: 12px;
 }
-
 .tip-cont{
     flex-direction: column;
     gap: 20px;
     padding: var(--padding-inline);
-
+    margin-top: 50px;
     text-align: justify;
 }

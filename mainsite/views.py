@@ -18,7 +18,7 @@ def blogs(request):
         'blogs':blogs,
 
     }
-    return render(request,'mainsite/blogpost.html',data)
+    return render(request,'mainsite/blog_page.html',data)
     
 def blogwrite(request):
     if request.method == 'POST':
