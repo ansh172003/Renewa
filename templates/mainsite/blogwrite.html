@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Illustrate your cravings</title>
-    <link rel="stylesheet" href="blogwrite.css">
+    <link rel="stylesheet" href="{% static 'blogwrite.css' %}">
 </head>
 <body>
     <nav>
@@ -22,9 +22,15 @@
                     <li><a href="" class="hover-link underline"><i class="fa-solid fa-heart"></i> Donate</a></li>
                 </ul>
             </div>
-            <div class="right-nav">
-                <a href="">Login</a>
-            </div>
+            {% if user.is_authenticated %}
+        <div class="right-nav">
+            <a href="{% url 'logout' %}">Logout</a>
+        </div>
+        {% else %}
+        <div class="right-nav">
+            <a href="{% url 'login' %}">Login</a>
+        </div>
+        {% endif %}
         </div>
     </nav>
     <section class="recipe">
