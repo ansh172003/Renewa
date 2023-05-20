@@ -126,7 +126,7 @@ nav.fixed{
 
 /* Bannner */ 
 .banner{
-    background:linear-gradient(rgba(197, 243, 164, 0.4),rgba(254,254,254,0.1)), url(Assets/bg2.png);
+    background:linear-gradient(rgba(197, 243, 164, 0.4),rgba(254,254,254,0.1)), url(/static/images/loginBg.png);
     background-size: cover;
 }
 .main-banner{
