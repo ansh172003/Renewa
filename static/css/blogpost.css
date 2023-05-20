@@ -1,0 +1,74 @@
+.Buy-cards{
+    margin-top: 80px;
+}
+.listing{
+    width: 75%;
+}
+.cards-listing{
+    justify-content: space-between;
+    padding: var(--padding-inline);
+}
+.listing{
+    flex-direction: column;
+    gap: 30px;
+
+}
+.list-card{
+    background: linear-gradient(rgba(63, 178, 245, 0.2),rgba(254,254,254,0));
+    gap: 30px;
+    box-shadow: 0 5px 8px #d4e6f6;
+    border-radius: 12px !important;
+    padding: var(--padding-inline);
+    width: 100%;
+    justify-content: space-between;
+    user-select: none;
+}
+.list-card img{
+    width: 200px;
+    border-radius: 12px;
+}
+.list-details{
+    width: 50%;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+   
+}
+.list-details h3{
+    font-size: 0.9rem;
+    color: var(--image-blue1);
+}
+.list-details p{
+    font-size: 0.8rem;
+    line-height: 15px;
+}
+.highlighted-feat{
+   justify-content: space-between;
+    border: 2px var(--image-blue2) solid;
+    border-radius: 10px;
+    padding: var(--padding-inline);
+}
+.highlighted-feat p{
+    color: var(--image-blue1);
+}
+.list-contact{
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    padding: var(--padding-inline);
+    border-left: 1px var(--image-blue1) dashed;
+}
+.contact-btn{
+    text-align: center;
+}
+.ads{
+    width: 23%;
+}
+
+.sample{
+   
+    width: 100%;
+    height: 100%;
+    padding: var(--padding-inline);
+   border: 1px var(--image-blue1) solid;
+}
