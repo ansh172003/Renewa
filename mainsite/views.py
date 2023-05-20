@@ -29,4 +29,4 @@ def grocery(request):
     pass
 
 def donate(request):
-    pass
+    return render(request, 'mainsite/donate.html')

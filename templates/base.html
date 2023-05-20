@@ -1,0 +1,64 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static './css/landing.css' %}">
+    <link rel="stylesheet" href="{% static './css/donate.css' %}">
+    <link rel="stylesheet" href="{% static 'recipe.css' %}">
+
+
+</head>
+
+
+<body>
+    {% include 'includes/navbar.html' %}
+
+    {% block content %}
+   
+    {% endblock %}
+
+</body>
+<script src="https://kit.fontawesome.com/b5a8447ad3.js" crossorigin="anonymous"></script>
+<script>
+    const navbar = document.querySelector('nav');
+    const navbarHeight = navbar.offsetHeight;
+    const scrollPosition = window.scrollY;
+
+    window.addEventListener('scroll', () => {
+    const scrollPosition = window.scrollY;
+
+    if (scrollPosition >= 35) {
+        navbar.classList.add('fixed');
+    } else {
+        navbar.classList.remove('fixed');
+    }
+    });
+</script>
+<!-- FAQ Section -->
+<script>
+    const questions = document.querySelectorAll(".question");
+
+    questions.forEach(question => {
+    question.addEventListener("click", function() {
+        const isActive = this.classList.contains("active");
+
+        // Close all answers
+        questions.forEach(q => {
+        q.classList.remove("active");
+        q.nextElementSibling.style.display = "none";
+        });
+
+        // Open current answer if it wasn't active before
+        if (!isActive) {
+        this.classList.add("active");
+        const answer = this.nextElementSibling;
+        answer.style.display = "block";
+        }
+    });
+    });
+
+  </script>
+</html>
