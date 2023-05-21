@@ -61,11 +61,14 @@ def blogwrite(request):
     return render(request, 'mainsite/blogwrite.html')
 
 def food(request):
-    pass
+    return render(request, 'mainsite/food.html')
+    
 
 def recipe(request):
     return render(request,'mainsite/recipe.html')
     
+def food_card(request):
+    return render(request,'mainsite/food_card.html')
 
 def grocery(request):
     pass

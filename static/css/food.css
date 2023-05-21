@@ -1,5 +1,5 @@
 .banner{
-    background:linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.1)),url(Assets/foodbg.jpg) ;
+    background:linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.1)),url(/static/images/foodbg.jpg) ;
     background-size: cover;
 }
 .heading{
