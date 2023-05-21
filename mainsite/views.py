@@ -56,19 +56,8 @@ def blogwrite(request):
                 image = file,
         )
         new_file.save()
-        return redirect('blogs')
-        # form = Imageupload(request.FILES)
-        
-        # image = form.cleaned_data.get("image")
-        
-        # image = files.get("image")
-
-        # blogmodel = BlogModel(title=title, content=content, image=image)
-        # blogmodel.save()
-        # messages.success(request,'Thanks for reaching out! Will contact you soon.')
-
-        # print(image)
-    
+        return redirect('blog')
+ 
     return render(request, 'mainsite/blogwrite.html')
 
 def food(request):
