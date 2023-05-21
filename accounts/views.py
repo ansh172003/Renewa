@@ -76,5 +76,5 @@ def logout_user(request):
     logout(request)
     return redirect('home')
 
-def dashboard(request):
-    return render(request, 'accounts/dashboard.html')
+# def dashboard(request):
+#     return render(request, 'accounts/dashboard.html')

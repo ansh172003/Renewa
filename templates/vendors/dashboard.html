@@ -1,11 +1,12 @@
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="renewa.css">
-    <link rel="stylesheet" href="spoil.css">
+    <link rel="stylesheet" href="{% static './css/landing.css' %}">
+    <link rel="stylesheet" href="{% static './css/spoil.css' %}">
 </head>
 <body>
     <nav>
@@ -15,8 +16,8 @@
             </div>
             <div class="mid-nav">
                 <ul class="flex">
-                    <li><a href="" class="hover-link underline"><i class="fa-solid fa-cart-shopping"></i> Sale</a></li>
-                    <li><a href="" class="hover-link underline"><i class="fa-solid fa-gauge"></i> Dashboard</a></li>
+                    <li><a href="{% url 'sell_food' %}" class="hover-link underline"><i class="fa-solid fa-cart-shopping"></i> Sale</a></li>
+                    <li><a href="{% url 'dashboard' %}" class="hover-link underline"><i class="fa-solid fa-gauge"></i> Dashboard</a></li>
                 </ul>
             </div>
             <div class="right-nav">
@@ -27,17 +28,11 @@
     <section class="spoil-form">
         <div class="container spoil-cont flex">
             <div class="left-sform">
-                <h2>Enter Details of Non-Spoiled food</h2>
-                <form action="" class="sform-textarea flex">
-                    <textarea placeholder="Enter Item Details" name="iten" id="item" rows="5"></textarea>
-                    <textarea placeholder="Enter Address" name="add" id="add" rows="5"></textarea>
-                    <div class="subbtn flex">
-                        <button class="btnsub">Submit</button>
-                    </div>
-                </form>
+                <h2>Check what people are eating the most around you!!</h2>
+               <p>{{ output| linebreaksbr }}</p>
             </div>
             <div class="right-sform">
-                <img src="Assets/spoil.svg" alt="">
+                <img src="{% static './images/spoil.svg' %}" alt="">
             </div>
         </div>
     </section>
