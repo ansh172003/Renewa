@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import BlogModel
 from django.contrib import messages
+from .forms import Imageupload
 
 # Create your views here.
 
@@ -21,17 +22,31 @@ def blogs(request):
     return render(request,'mainsite/blog_page.html',data)
     
 def blogwrite(request):
+    context = {}
     if request.method == 'POST':
         title = request.POST['title']
-        image = request.POST.get('image')
+
         content = request.POST['content']
+        files = request.FILES.getlist('image')
+
+        for file in files:
+            new_file = BlogModel(
+                title = title,
+                content = content,
+                image = file,
+        )
+        new_file.save()
+        # form = Imageupload(request.FILES)
+        
+        # image = form.cleaned_data.get("image")
+        
         # image = files.get("image")
 
-        blogmodel = BlogModel(title=title, content=content, image=image)
-        blogmodel.save()
+        # blogmodel = BlogModel(title=title, content=content, image=image)
+        # blogmodel.save()
         messages.success(request,'Thanks for reaching out! Will contact you soon.')
 
-        print(image)
+        # print(image)
     
     return render(request, 'mainsite/blogwrite.html')
 
