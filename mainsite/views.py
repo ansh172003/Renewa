@@ -28,7 +28,7 @@ def blog_detail(request, id):
     data = {
         'detail':detail,
     }
-    return render(request,"mainsite/blog_details.html",data)
+    return render(request,"mainsite/blog_solo.html",data)
 
     
 def blogwrite(request):

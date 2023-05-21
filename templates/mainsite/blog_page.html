@@ -29,23 +29,30 @@
         </div>
     </nav>
     <section class="blog-card-sec">
+
         <div class="container blog-cont flex">
+
             <div class="left-blog">
                 <div class="card-area flex">
                 <a href="" class="blogcard-achor">
+    {% for blog in blogs %}
+
                     <div class="blogcard flex">
                         <div class="left-blogcard">
-                            <h2>I have Created a new reciepe using 2 veges only!</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro voluptas nam velit at ex minus! Asperiores cumque beatae magnam eum odit natus harum molestias repellendus, dolores exercitationem. Dignissimos, soluta ea?</p>
-                            <h3>Nikunj Gupta</h3>
+                            <h2>{{ blog.title }}</h2>
+                            <p>{{ blog.content }}</p>
+                            <!-- <h3>{{ blog.user }}</h3> -->
                         </div>
                         <div class="right-blogcard flex">
-                            <img src="Assets/Shahi-Paneer-4.jpg" alt="">
+                            {% if blog.image %}
+                            <img src="{{ blog.image.url }}" alt="">
+                            {% endif %}
                         </div>
                     </div>
                 </a>
                 </div>
             </div>
+            {% endfor %}
             <div class="right-blog">
                <div class="headers">
                 <h2>Tips</h2>

@@ -4,8 +4,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="renewa.css">
-    <link rel="stylesheet" href="blog-solo.css">
+    <link rel="stylesheet" href="{% static './css/landing.css' %}">
+    <link rel="stylesheet" href="{% static './css/blog-solo.css' %}">
 </head>
 <body>
     <nav>
@@ -15,11 +15,11 @@
             </div>
             <div class="mid-nav">
                 <ul class="flex">
-                    <li><a href="" class="hover-link underline"><i class="fa-sharp fa-solid fa-square-rss"></i> Blog</a></li>
-                    <li><a href="" class="hover-link underline"><i class="fa-solid fa-bowl-food"></i> Food</a></li>
+                    <li><a href="{% url 'blog' %}" class="hover-link underline"><i class="fa-sharp fa-solid fa-square-rss"></i> Blog</a></li>
+                    <li><a href="{% url 'food' %}" class="hover-link underline"><i class="fa-solid fa-bowl-food"></i> Food</a></li>
                     <li><a href="" class="hover-link underline"><i class="fa-solid fa-cart-shopping"></i> Groceries</a></li>
-                    <li><a href="" class="hover-link underline"><i class="fa-solid fa-mortar-pestle"></i> Recipe</a></li>
-                    <li><a href="" class="hover-link underline"><i class="fa-solid fa-heart"></i> Donate</a></li>
+                    <li><a href="{% url 'recipe' %}" class="hover-link underline"><i class="fa-solid fa-mortar-pestle"></i> Recipe</a></li>
+                    <li><a href="{% url 'donate' %}" class="hover-link underline"><i class="fa-solid fa-heart"></i> Donate</a></li>
                 </ul>
             </div>
             <div class="right-nav">
@@ -30,12 +30,12 @@
     <section class="main-page">
         <div class="container main-page-cont flex">
             <div class="left-main">
-                <img src="Assets/Shahi-Paneer-4.jpg" alt="">
+                <img src="{{ detail.image.url }}" alt="">
             </div>
             <div class="right-main">
-                <h1>I have Created a new reciepe using 2 veges only!</h1>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam fugit perspiciatis voluptas et voluptate porro hic perferendis? Velit consequatur hic odit in officia labore, blanditiis sint cumque assumenda accusamus! Quae!</p>
-                <h3>NIkunj Gupta</h3>
+                <h1>{{ detail.title }}</h1>
+                <p>{{ detail.content }}</p>
+                <!-- <h3>{{ detail.user }}</h3> -->
             </div>
         </div>
     </section>

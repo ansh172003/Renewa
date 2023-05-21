@@ -11,7 +11,7 @@ class BlogModel(models.Model):
     content = models.TextField(max_length=2000)
     image = models.ImageField(upload_to='media/slider/%Y/%m', blank=True)
     created_date = models.DateTimeField(default = datetime.now, blank=True)
-    user = User.username
+    # user = User.username
 
 # class RewardPoints(models.Model):
 #     user = 
