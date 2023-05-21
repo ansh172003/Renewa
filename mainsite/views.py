@@ -7,7 +7,7 @@ import openai
 
 def askGPT(items):
 
-    openai.api_key = "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"
+    openai.api_key = "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"
     prompt = "Here is the list of my leftovers items, suggest me a indian easy to make recipe that I can make using these leftovers" + items
     chat = openai.Completion.create( engine = "text-davinci-003", prompt = prompt, max_tokens = 1024, n=1, stop=None, temperature=0.5)
     
