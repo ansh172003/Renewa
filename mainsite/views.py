@@ -2,6 +2,8 @@ from django.shortcuts import render
 from .models import BlogModel
 from django.contrib import messages
 from .forms import Imageupload
+from django.shortcuts import get_object_or_404
+
 
 # Create your views here.
 
@@ -20,6 +22,14 @@ def blogs(request):
 
     }
     return render(request,'mainsite/blog_page.html',data)
+
+def blog_detail(request, id):
+    detail = get_object_or_404(BlogModel, pk = id)
+    data = {
+        'detail':detail,
+    }
+    return render(request,"mainsite/blog_details.html",data)
+
     
 def blogwrite(request):
     context = {}
