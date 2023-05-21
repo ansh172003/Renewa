@@ -1,10 +1,11 @@
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="renewa.css">
+    <link rel="stylesheet" href="{% static './css/landing.css' %}">
 </head>
 <style>
     nav{
@@ -39,20 +40,26 @@
     <nav>
         <div class="container navbar flex">
             <div class="left-nav">
-                <h2><a class="font" href="">Renewa</a></h2>
+                <h2><a href="{% url 'home' %}" class="font" href="">Renewa</a></h2>
             </div>
             <div class="mid-nav">
                 <ul class="flex">
-                    <li><a href="" class="hover-link underline"><i class="fa-sharp fa-solid fa-square-rss"></i> Blog</a></li>
-                    <li><a href="" class="hover-link underline"><i class="fa-solid fa-bowl-food"></i> Food</a></li>
-                    <li><a href="" class="hover-link underline"><i class="fa-solid fa-cart-shopping"></i> Groceries</a></li>
-                    <li><a href="" class="hover-link underline"><i class="fa-solid fa-mortar-pestle"></i> Recipe</a></li>
-                    <li><a href="" class="hover-link underline"><i class="fa-solid fa-heart"></i> Donate</a></li>
+                    <li><a href="{% url 'blog' %}" class="hover-link underline"><i class="fa-sharp fa-solid fa-square-rss"></i> Blog</a></li>
+                    <li><a href="{% url 'food' %}" class="hover-link underline"><i class="fa-solid fa-bowl-food"></i> Food</a></li>
+                    <li><a href="{% url 'grocery_card' %}" class="hover-link underline"><i class="fa-solid fa-cart-shopping"></i> Groceries</a></li>
+                    <li><a href="{% url 'recipe' %}" class="hover-link underline"><i class="fa-solid fa-mortar-pestle"></i> Recipe</a></li>
+                    <li><a href="{% url 'donate' %}" class="hover-link underline"><i class="fa-solid fa-heart"></i> Donate</a></li>
                 </ul>
             </div>
-            <div class="right-nav">
-                <a href="">Login</a>
-            </div>
+            {% if user.is_authenticated %}
+        <div class="right-nav">
+            <a href="{% url 'logout' %}">Logout</a>
+        </div>
+        {% else %}
+        <div class="right-nav">
+            <a href="{% url 'login' %}">Login</a>
+        </div>
+        {% endif %}
         </div>
     </nav>
     <section class="congrats">
@@ -60,7 +67,7 @@
           <h1 class="sexy">RENEWA</h1>
            <div class="congo-img flex">
 
-               <img src="Assets/congo.svg" alt="">
+               <img src="{% static './images/congo.svg' %}" alt="">
            </div>
            <h1>Congratulations! you won 50 coins</h1>
         </div>

@@ -22,5 +22,10 @@ class Grocery(models.Model):
     image = models.ImageField(upload_to='media/slider/%Y/%m', blank=True)
     title = models.TextField(max_length=255)
     price = models.TextField(max_length=255)
-# class RewardPoints(models.Model):
-#     user = 
+
+class Donate(models.Model):
+    food_type = models.TextField(max_length=255)
+    address = models.TextField(max_length=255)
+
+class RewardPoints(models.Model):
+    points = models.IntegerField(blank=True)

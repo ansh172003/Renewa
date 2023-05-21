@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import BlogModel, NightFood, Grocery
+from .models import BlogModel, NightFood, Grocery, Donate
 from django.contrib import messages
 from .forms import Imageupload
 from django.shortcuts import get_object_or_404
@@ -74,6 +74,8 @@ def blogwrite(request):
 def food(request):
     return render(request, 'mainsite/food.html')
     
+def congo(request):
+    return render(request, 'mainsite/single-donation.html')
 
 def recipe(request):
     if request.method == 'POST':
@@ -128,4 +130,20 @@ def grocery(request):
     pass
 
 def donate(request):
+    if request.method == 'POST':
+        food_type = request.POST['food_type']
+        address = request.POST['address']
+        donate = Donate(food_type=food_type, address=address)
+        donate.save()
+        return redirect('congo')
+
+
+
     return render(request, 'mainsite/donate.html')
+
+def user_choice(request):
+    foodItems = []
+    if request.method == 'POST':
+        foodItems = request.POST.getlist('foodItem')
+        print(foodItems)
+    return render(request, 'mainsite/choices.html',{'foodItmes':foodItems})

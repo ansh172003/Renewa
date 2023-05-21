@@ -1,0 +1,477 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choices</title>
+    <link rel="stylesheet" href="{% static './css/choice.css' %}">
+</head>
+<body>
+    <nav>
+        <div class="container navbar flex">
+          <div class="left-nav">
+            <h2><a class="font" href="">Renewa</a></h2>
+          </div>
+          <div class="mid-nav">
+            <ul class="flex">
+              <li>
+                <a href="" class="hover-link underline"
+                  ><i class="fa-sharp fa-solid fa-square-rss"></i> Blog</a
+                >
+              </li>
+              <li>
+                <a href="" class="hover-link underline"
+                  ><i class="fa-solid fa-bowl-food"></i> Food</a
+                >
+              </li>
+              <li>
+                <a href="" class="hover-link underline"
+                  ><i class="fa-solid fa-cart-shopping"></i> Groceries</a
+                >
+              </li>
+              <li>
+                <a href="" class="hover-link underline"
+                  ><i class="fa-solid fa-mortar-pestle"></i> Recipe</a
+                >
+              </li>
+              <li>
+                <a href="" class="hover-link underline"
+                  ><i class="fa-solid fa-heart"></i> Donate</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="right-nav">
+            <a href="">Login</a>
+          </div>
+        </div>
+      </nav>
+      <form method="POST" action="{% url 'user_choice' %}">
+        {% csrf_token %}
+        <section class="choice">
+            <div class="container">
+                <div class="mainHeading">
+                    <h1>Discover Your Culinary Journey!</h1>
+                </div>
+                <div class="vegNon">
+                    <div class="heading">
+                        <h4>Are You a Veggie or a Meat Lover?</h4>
+                    </div>
+                    <div class="options">
+                        <label>
+                            <input type="radio" name="foodPreference" value="vegetarian" /> Veg
+                        </label>
+                        <label>
+                            <input type="radio" name="foodPreference" value="nonvegetarian" /> Non-Veg
+                        </label>
+                    </div>
+                </div>
+                <div class="mealNumber">
+                    <div class="heading">
+                        <h4>Enter Your Daily Number of Meals</h4>
+                    </div>
+                    <div class="options">
+                        <label>
+                            <input type="radio" name="mealNumber" value="3" /> 3
+                        </label>
+                        <label>
+                            <input type="radio" name="mealNumber" value="4" /> 4
+                        </label>
+                        <label>
+                            <input type="radio" name="mealNumber" value="5" /> 5
+                        </label>
+                    </div>
+                </div>
+                <div class="cuisineSelect">
+                    <div class="heading">
+                        <h4>Select Your Choice of Cuisines</h4>
+                    </div>
+                    <div class="options">
+                        <label>
+                            <input type="checkbox" name="cuisine" value="northIndian" /> North Indian
+                        </label>
+                        <label>
+                            <input type="checkbox" name="cuisine" value="southIndian" /> South Indian
+                        </label>
+                        <label>
+                            <input type="checkbox" name="cuisine" value="gujarati" /> Gujarati
+                        </label>
+                        <label>
+                            <input type="checkbox" name="cuisine" value="punjabi" /> Punjabi
+                        </label>
+                        <label>
+                            <input type="checkbox" name="cuisine" value="chinese" /> Chinese
+                        </label>
+                        <label>
+                            <input type="checkbox" name="cuisine" value="italian" /> Italian
+                        </label>
+                    </div>
+                </div>
+                <div class="foodItemSelect">
+                    <div class="heading">
+                        <h4>Select Your Favorite Food Items</h4>
+                    </div>
+                    <div class="options">
+                        <!-- List of food items with checkboxes -->
+                        <label><input type="checkbox" name="foodItem" value="Biryani"/>Biryani</label>
+                        <label><input type="checkbox" name="foodItem" value="Butter Chicken"/>Butter Chicken</label>
+                        <label><input type="checkbox" name="foodItem" value="Masala Dosa"/>Masala Dosa</label>
+                        <label><input type="checkbox" name="foodItem" value="Samosa"/>Samosa</label>
+                        <label><input type="checkbox" name="foodItem" value="Tandoori Chicken"/>Tandoori Chicken</label>
+                        <label><input type="checkbox" name="foodItem" value="Paneer Tikka"/>Paneer Tikka</label>
+                        <label><input type="checkbox" name="foodItem" value="Chole Bhature"/>Chole Bhature</label>
+                        <label><input type="checkbox" name="foodItem" value="Rajma Chawal"/>Rajma Chawal</label>
+                        <label><input type="checkbox" name="foodItem" value="Pani Puri"/>Pani Puri</label>
+                        <br>
+                        <label><input type="checkbox" name="foodItem" value="Gulab Jamun"/>Gulab Jamun</label>
+                        <label><input type="checkbox" name="foodItem" value="Chicken Tikka Masala"/>Chicken Tikka Masala</label>
+                        <label><input type="checkbox" name="foodItem" value="Dhokla"/>Dhokla</label>
+                        <label><input type="checkbox" name="foodItem" value="Idli"/>Idli</label>
+                        <label><input type="checkbox" name="foodItem" value="Aloo Paratha"/>Aloo Paratha</label>
+                        <label><input type="checkbox" name="foodItem" value="Fish Curry"/>Fish Curry</label>
+                        <label><input type="checkbox" name="foodItem" value="Vada Pav"/>Vada Pav</label>
+                        <label><input type="checkbox" name="foodItem" value="Pav Bhaji"/>Pav Bhaji</label>
+                        <label><input type="checkbox" name="foodItem" value="Chicken Biryani"/>Chicken Biryani</label>
+                        <label><input type="checkbox" name="foodItem" value="Hyderabadi Dum Biryani"/>Hyderabadi Dum Biryani</label>
+                        <br>
+                        <label><input type="checkbox" name="foodItem" value="Rasgulla"/>Rasgulla</label>
+                        <label><input type="checkbox" name="foodItem" value="Palak Paneer"/>Palak Paneer</label>
+                        <label><input type="checkbox" name="foodItem" value="Papdi Chaat"/>Papdi Chaat</label>
+                        <label><input type="checkbox" name="foodItem" value="Dal Makhani"/>Dal Makhani</label>
+                        <label><input type="checkbox" name="foodItem" value="Mutton Curry"/>Mutton Curry</label>
+                        <label><input type="checkbox" name="foodItem" value="Poha"/>Poha</label>
+                        <label><input type="checkbox" name="foodItem" value="Malai Kofta"/>Malai Kofta</label>
+                        <label><input type="checkbox" name="foodItem" value="Aloo Tikki"/>Aloo Tikki</label>
+                        <label><input type="checkbox" name="foodItem" value="Kadai Paneer"/>Kadai Paneer</label>
+                        <label><input type="checkbox" name="foodItem" value="Chaat"/>Chaat</label>
+                        <br>
+                        <label><input type="checkbox" name="foodItem" value="Gajar Ka Halwa"/>Gajar Ka Halwa</label>
+                        <label><input type="checkbox" name="foodItem" value="Tandoori Roti"/>Tandoori Roti</label>
+                        <label><input type="checkbox" name="foodItem" value="Matar Paneer"/>Matar Paneer</label>
+                        <label><input type="checkbox" name="foodItem" value="Jalebi"/>Jalebi</label>
+                        <label><input type="checkbox" name="foodItem" value="Kachori"/>Kachori</label>
+                        <label><input type="checkbox" name="foodItem" value="Chicken Curry"/>Chicken Curry</label>
+                        <label><input type="checkbox" name="foodItem" value="Pulao"/>Pulao</label>
+                        <label><input type="checkbox" name="foodItem" value="Rasmalai"/>Rasmalai</label>
+                        <label><input type="checkbox" name="foodItem" value="Shahi Paneer"/>Shahi Paneer</label>
+                        <label><input type="checkbox" name="foodItem" value="Pakora"/>Pakora</label>
+                        <br>
+                        <label><input type="checkbox" name="foodItem" value="Chicken 65"/>Chicken 65</label>
+                        <label><input type="checkbox" name="foodItem" value="Mango Lassi"/>Mango Lassi</label>
+                        <label><input type="checkbox" name="foodItem" value="Kulfi"/>Kulfi</label>
+                        <label><input type="checkbox" name="foodItem" value="Chicken Korma"/>Chicken Korma</label>
+                        <label><input type="checkbox" name="foodItem" value="Chapati"/>Chapati</label>
+                        <label><input type="checkbox" name="foodItem" value="Gobi Manchurian"/>Gobi Manchurian</label>
+                        <label><input type="checkbox" name="foodItem" value="Mysore Masala Dosa"/>Mysore Masala Dosa</label>
+                        <label><input type="checkbox" name="foodItem" value="Upma"/>Upma</label>
+                        <label><input type="checkbox" name="foodItem" value="Dal Tadka"/>Dal Tadka</label>
+                        <label><input type="checkbox" name="foodItem" value="Kheer"/>Kheer</label>
+                        <br>
+                        <label><input type="checkbox" name="foodItem" value="Aloo Gobi"/>Aloo Gobi</label>
+                        <label><input type="checkbox" name="foodItem" value="Chicken Chettinad"/>Chicken Chettinad</label>
+                        <label><input type="checkbox" name="foodItem" value="Phirni"/>Phirni</label>
+                        <label><input type="checkbox" name="foodItem" value="Mutton Biryani"/>Mutton Biryani</label>
+                        <label><input type="checkbox" name="foodItem" value="Laccha Paratha"/>Laccha Paratha</label>
+                        <label><input type="checkbox" name="foodItem" value="Chicken Shawarma"/>Chicken Shawarma</label>
+                        <label><input type="checkbox" name="foodItem" value="Shahi Tukda"/>Shahi Tukda</label>
+                        <label><input type="checkbox" name="foodItem" value="Raj Kachori"/>Raj Kachori</label>
+                        <label><input type="checkbox" name="foodItem" value="Chicken Fry"/>Chicken Fry</label>
+                        <label><input type="checkbox" name="foodItem" value="Dahi Puri"/>Dahi Puri</label>
+                        <br>
+                        <label><input type="checkbox" name="foodItem" value="Aloo Matar"/>Aloo Matar</label>
+                        <label><input type="checkbox" name="foodItem" value="Butter Naan"/>Butter Naan</label>
+                        <label><input type="checkbox" name="foodItem" value="Dal Fry"/>Dal Fry</label>
+                        <label><input type="checkbox" name="foodItem" value="Chicken Tandoori"/>Chicken Tandoori</label>
+                        <label><input type="checkbox" name="foodItem" value="Papad"/>Papad</label>
+                        <label><input type="checkbox" name="foodItem" value="Chicken Do Pyaza"/>Chicken Do Pyaza</label>
+                        <label><input type="checkbox" name="foodItem" value="Veg Pulao"/>Veg Pulao</label>
+                        <label><input type="checkbox" name="foodItem" value="Mutton Korma"/>Mutton Korma</label>
+                        <label><input type="checkbox" name="foodItem" value="Egg Curry"/>Egg Curry</label>
+                        <label><input type="checkbox" name="foodItem" value="Chicken Kebab"/>Chicken Kebab</label>
+                        <br>
+                        <label><input type="checkbox" name="foodItem" value="Chilli Chicken"/>Chilli Chicken</label>
+                        <label><input type="checkbox" name="foodItem" value="Rava Dosa"/>Rava Dosa</label>
+                        <label><input type="checkbox" name="foodItem" value="Onion Uttapam"/>Onion Uttapam</label>
+                        <label><input type="checkbox" name="foodItem" value="Puran Poli"/>Puran Poli</label>
+                        <label><input type="checkbox" name="foodItem" value="Keema Matar"/>Keema Matar</label>
+                        <label><input type="checkbox" name="foodItem" value="Kadai Chicken"/>Kadai Chicken</label>
+                        <label><input type="checkbox" name="foodItem" value="Fish Fry"/>Fish Fry</label>
+                        <label><input type="checkbox" name="foodItem" value="Vegetable Biryani"/>Vegetable Biryani</label>
+                        <label><input type="checkbox" name="foodItem" value="Aloo Jeera"/>Aloo Jeera</label>
+                        <label><input type="checkbox" name="foodItem" value="Chicken Handi"/>Chicken Handi</label>
+                        <br>
+                        <label><input type="checkbox" name="foodItem" value="Mango Pickle"/>Mango Pickle</label>
+                        <label><input type="checkbox" name="foodItem" value="Pongal"/>Pongal</label>
+                        <label><input type="checkbox" name="foodItem" value="Tawa Pulao"/>Tawa Pulao</label>
+                        <label><input type="checkbox" name="foodItem" value="Veg Manchurian"/>Veg Manchurian</label>
+                        <label><input type="checkbox" name="foodItem" value="Chicken Salna"/>Chicken Salna</label>
+                        <label><input type="checkbox" name="foodItem" value="Egg Fried Rice"/>Egg Fried Rice</label>
+                        <label><input type="checkbox" name="foodItem" value="Tamarind Rice"/>Tamarind Rice</label>
+                        <label><input type="checkbox" name="foodItem" value="Chicken 555"/>Chicken 555</label>
+                        <label><input type="checkbox" name="foodItem" value="Chicken Kolhapuri"/>Chicken Kolhapuri</label>
+                        <label><input type="checkbox" name="foodItem" value="Ghee Rice"/>Ghee Rice</label>
+                        <br>
+                        <label><input type="checkbox" name="foodItem" value="Mushroom Tikka"/>Mushroom Tikka</label>
+                        <label><input type="checkbox" name="foodItem" value="Chicken Manchurian"/>Chicken Manchurian</label>
+                        <label><input type="checkbox" name="foodItem" value="Keema Paratha"/>Keema Paratha</label>
+                        <label><input type="checkbox" name="foodItem" value="Bhindi Masala"/>Bhindi Masala</label>
+                        <label><input type="checkbox" name="foodItem" value="Kadhi Pakora"/>Kadhi Pakora</label>
+                        <label><input type="checkbox" name="foodItem" value="Chicken Vindaloo"/>Chicken Vindaloo</label>
+                        <label><input type="checkbox" name="foodItem" value="Chicken Kali Mirch"/>Chicken Kali Mirch</label>
+                        <label><input type="checkbox" name="foodItem" value="Lemon Rice"/>Lemon Rice</label>
+                        <br>
+                        <label><input type="checkbox" name="foodItem" value="Chicken Patiala"/>Chicken Patiala</label>
+                        <label><input type="checkbox" name="foodItem" value="Chicken Reshmi Kebab"/>Chicken Reshmi Kebab</label>
+                        <label><input type="checkbox" name="foodItem" value="Dhansak"/>Dhansak</label>
+                        <label><input type="checkbox" name="foodItem" value="Kheema Pav"/>Kheema Pav</label>
+                        <label><input type="checkbox" name="foodItem" value="Khandvi"/>Khandvi</label>
+                        <label><input type="checkbox" name="foodItem" value="Dabeli"/>Dabeli</label>
+                        <label><input type="checkbox" name="foodItem" value="Kathi Rolls"/>Kathi Rolls</label>
+                        <label><input type="checkbox" name="foodItem" value="Kozhukattai"/>Kozhukattai</label>
+                        <label><input type="checkbox" name="foodItem" value="Mysore Pak"/>Mysore Pak</label>
+                        <label><input type="checkbox" name="foodItem" value="Neer Dosa"/>Neer Dosa</label>
+                        <label><input type="checkbox" name="foodItem" value="Undhiyu"/>Undhiyu</label>
+                        <br>
+                        <label><input type="checkbox" name="foodItem" value="Pesarattu"/>Pesarattu</label>
+                        <label><input type="checkbox" name="foodItem" value="Akki Roti"/>Akki Roti</label>
+                        <label><input type="checkbox" name="foodItem" value="Misal Pav"/>Misal Pav</label>
+                        <label><input type="checkbox" name="foodItem" value="Aloo Bonda"/>Aloo Bonda</label>
+                        <label><input type="checkbox" name="foodItem" value="Medu Vada"/>Medu Vada</label>
+                        <label><input type="checkbox" name="foodItem" value="Ragda Patties"/>Ragda Patties</label>
+                        <label><input type="checkbox" name="foodItem" value="Ras Malai"/>Ras Malai</label>
+                        <label><input type="checkbox" name="foodItem" value="Litti Chokha"/>Litti Chokha</label>
+                        <label><input type="checkbox" name="foodItem" value="Ghevar"/>Ghevar</label>
+                        <label><input type="checkbox" name="foodItem" value="Baingan Bharta"/>Baingan Bharta</label>
+                        <label><input type="checkbox" name="foodItem" value="Pindi Chole"/>Pindi Chole</label>
+                        <br>
+                        <label><input type="checkbox" name="foodItem" value="Gujarati Kadhi"/>Gujarati Kadhi</label>
+                        <label><input type="checkbox" name="foodItem" value="Malabar Parotta"/>Malabar Parotta</label>
+                        <label><input type="checkbox" name="foodItem" value="Chettinad Chicken"/>Chettinad Chicken</label>
+                        <label><input type="checkbox" name="foodItem" value="Korma"/>Korma</label>
+                        <label><input type="checkbox" name="foodItem" value="Mughlai Paratha"/>Mughlai Paratha</label>
+                        <label><input type="checkbox" name="foodItem" value="Rogan Josh"/>Rogan Josh</label>
+                        <label><input type="checkbox" name="foodItem" value="Aamras Puri"/>Aamras Puri</label>
+                        <label><input type="checkbox" name="foodItem" value="Malpua"/>Malpua</label>
+                        <label><input type="checkbox" name="foodItem" value="Papri Chaat"/>Papri Chaat</label>
+                        <label><input type="checkbox" name="foodItem" value="Shrikhand"/>Shrikhand</label>
+                        <br>
+                        <label><input type="checkbox" name="foodItem" value="Pootharekulu"/>Pootharekulu</label>
+                        <label><input type="checkbox" name="foodItem" value="Coorg Pandi Curry"/>Coorg Pandi Curry</label>
+                        <label><input type="checkbox" name="foodItem" value="Avial"/>Avial</label>
+                        <label><input type="checkbox" name="foodItem" value="Puttu"/>Puttu</label>
+                        <label><input type="checkbox" name="foodItem" value="Pasta"/>Pasta</label>
+                        <label><input type="checkbox" name="foodItem" value="Milk Shakes"/>Milk Shakes</label>
+                        <label><input type="checkbox" name="foodItem" value="Chinese"/>Chinese</label>
+                        <label><input type="checkbox" name="foodItem" value="Juices"/>Juices</label>
+                        <label><input type="checkbox" name="foodItem" value="Pizza"/>Pizza</label>
+                        <label><input type="checkbox" name="foodItem" value="Burger"/>Burger</label>
+                        
+                    </div>
+                    <div class="buttonSubmit flex">
+                        <button>Submit</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </form>
+    
+      <!-- <section class="choice">
+        <div class="container">
+            <div class="mainHeading">
+                <h1>Enter your food eating prefernces</h1>
+            </div>
+           <div class="vegNon">
+                <div class="heading">
+                    <h4>Choose if you're Vegetarian or Non Vegetarian</h4>
+                </div>
+                <div class="options">
+                    <button>Veg</button>
+                    <button>Non - Veg</button>
+                </div>
+           </div>
+           <div class="mealNumber">
+            <div class="heading">
+                <h4>Enter your daily number of meals</h4>
+            </div>
+            <div class="options">
+                <button>3</button>
+                <button>4</button>
+                <button>5</button>
+            </div>
+           </div> 
+           <div class="cuisineSelect">
+            <div class="heading">
+                <h4>Enter your choice of cuisines</h4>
+            </div>
+            <div class="options">
+                <button>North Indian</button>
+                <button>South Indian</button>
+                <button>Gujarati</button>
+                <button>Punjabi</button>
+                <button>Chinese</button>
+                <button>Italian</button>
+            </div>
+           </div>
+           <div class="foodItemSelect">
+            <div class="heading">
+                <h4>Select your fav food items</h4>
+            </div>
+            <div class="options">
+                <button>Biryani</button>
+                <button>Butter Chicken</button>
+                <button>Masala Dosa</button>
+                <button>Samosa</button>
+                <button>Tandoori Chicken</button>
+                <button>Paneer Tikka</button>
+                <button>Chole Bhature</button>
+                <button>Rajma Chawal</button>
+                <button>Pani Puri</button>
+                <button>Gulab Jamun</button>
+                <button>Chicken Tikka Masala</button>
+                <button>Dhokla</button>
+                <button>Idli</button>
+                <button>Aloo Paratha</button>
+                <button>Fish Curry</button>
+                <button>Vada Pav</button>
+                <button>Pav Bhaji</button>
+                <button>Chicken Biryani</button>
+                <button>Hyderabadi Dum Biryani</button>
+                <button>Rasgulla</button>
+                <button>Palak Paneer</button>
+                <button>Papdi Chaat</button>
+                <button>Dal Makhani</button>
+                <button>Mutton Curry</button>
+                <button>Poha</button>
+                <button>Malai Kofta</button>
+                <button>Aloo Tikki</button>
+                <button>Kadai Paneer</button>
+                <button>Chaat</button>
+                <button>Gajar Ka Halwa</button>
+                <button>Tandoori Roti</button>
+                <button>Matar Paneer</button>
+                <button>Jalebi</button>
+                <button>Kachori</button>
+                <button>Chicken Curry</button>
+                <button>Pulao</button>
+                <button>Rasmalai</button>
+                <button>Shahi Paneer</button>
+                <button>Pakora</button>
+                <button>Chicken 65</button>
+                <button>Mango Lassi</button>
+                <button>Kulfi</button>
+                <button>Chicken Korma</button>
+                <button>Chapati</button>
+                <button>Gobi Manchurian</button>
+                <button>Mysore Masala Dosa</button>
+                <button>Upma</button>
+                <button>Dal Tadka</button>
+                <button>Kheer</button>
+                <button>Aloo Gobi</button>
+                <button>Chicken Chettinad</button>
+                <button>Phirni</button>
+                <button>Mutton Biryani</button>
+                <button>Laccha Paratha</button>
+                <button>Chicken Shawarma</button>
+                <button>Shahi Tukda</button>
+                <button>Raj Kachori</button>
+                <button>Chicken Fry</button>
+                <button>Dahi Puri</button>
+                <button>Aloo Matar</button>
+                <button>Butter Naan</button>
+                <button>Dal Fry</button>
+                <button>Chicken Tandoori</button>
+                <button>Papad</button>
+                <button>Chicken Do Pyaza</button>
+                <button>Veg Pulao</button>
+                <button>Mutton Korma</button>
+                <button>Egg Curry</button>
+                <button>Chicken Kebab</button>
+                <button>Chilli Chicken</button>
+                <button>Rava Dosa</button>
+                <button>Onion Uttapam</button>
+                <button>Puran Poli</button>
+                <button>Keema Matar</button>
+                <button>Kadai Chicken</button>
+                <button>Fish Fry</button>
+                <button>Vegetable Biryani</button>
+                <button>Aloo Jeera</button>
+                <button>Chicken Handi</button>
+                <button>Mango Pickle</button>
+                <button>Pongal</button>
+                <button>Tawa Pulao</button>
+                <button>Veg Manchurian</button>
+                <button>Chicken Salna</button>
+                <button>Egg Fried Rice</button>
+                <button>Tamarind Rice</button>
+                <button>Chicken 555</button>
+                <button>Chicken Kolhapuri</button>
+                <button>Ghee Rice</button>
+                <button>Mushroom Tikka</button>
+                <button>Chicken Manchurian</button>
+                <button>Keema Paratha</button>
+                <button>Bhindi Masala</button>
+                <button>Kadhi Pakora</button>
+                <button>Chicken Vindaloo</button>
+                <button>Chicken Kali Mirch</button>
+                <button>Lemon Rice</button>
+                <button>Chicken Patiala</button>
+                <button>Chicken Reshmi Kebab</button>
+                <button>Dhansak</button>
+                <button>Kheema Pav</button>
+                <button>Khandvi</button>
+                <button>Dabeli</button>
+                <button>Kathi Rolls</button>
+                <button>Kozhukattai</button>
+                <button>Mysore Pak</button>
+                <button>Neer Dosa</button>
+                <button>Undhiyu</button>
+                <button>Pesarattu</button>
+                <button>Akki Roti</button>
+                <button>Misal Pav</button>
+                <button>Aloo Bonda</button>
+                <button>Medu Vada</button>
+                <button>Ragda Patties</button>
+                <button>Ras Malai</button>
+                <button>Litti Chokha</button>
+                <button>Ghevar</button>
+                <button>Baingan Bharta</button>
+                <button>Pindi Chole</button>
+                <button>Gujarati Kadhi</button>
+                <button>Malabar Parotta</button>
+                <button>Chettinad Chicken</button>
+                <button>Korma</button>
+                <button>Mughlai Paratha</button>
+                <button>Rogan Josh</button>
+                <button>Aamras Puri</button>
+                <button>Malpua</button>
+                <button>Papri Chaat</button>
+                <button>Shrikhand</button>
+                <button>Pootharekulu</button>
+                <button>Coorg Pandi Curry</button>
+                <button>Avial</button>
+                <button>Puttu</button>
+                <button>Thalassery Biryani</button>
+                <button>Kappa Meen Curry</button>
+                <button>Idiyappam</button>
+                <button>Juices</button>
+                <button>Pizza</button>
+                <button>Burger</button>
+                <button>Pasta</button>
+                <button>Milk Shakes</button>
+                <button>Chinese</button>
+                
+            </div>
+           </div
+           </div>
+        </div>
+      </section> -->
+</body>
+<script>
+    function toggleSelection(button) {
+      button.classList.toggle("selected");
+    }
+  </script>
+<script src="https://kit.fontawesome.com/b5a8447ad3.js" crossorigin="anonymous"></script>
+</html>

@@ -45,9 +45,10 @@
                 <h1>YOU are the KINGGG <br>
                     Here is your CROWN.
                 </h1>
-                <form action="" class="address flex">
-                <input placeholder="What do you wanna donate today" type="text" name="type" id="type" required><br>
-                <input placeholder="Enter your address" type="text" name="adrs" id="adrs" required><br>
+                <form method="POST" action="{% url 'donate' %}" class="address flex">
+                    {% csrf_token %}
+                <input placeholder="What do you wanna donate today" type="text" name="food_type" id="type" required><br>
+                <input placeholder="Enter your address" type="text" name="address" id="adrs" required><br>
                 <button>That's the place</button>
                 </form>
 
