@@ -29,7 +29,7 @@
         <div class="container spoil-cont flex">
             <div class="left-sform">
                 <h2>Check what people are eating the most around you!!</h2>
-               <p>{{ output| linebreaksbr }}</p>
+               <p>{{ output| linebreaksbr | safe }}</p>
             </div>
             <div class="right-sform">
                 <img src="{% static './images/spoil.svg' %}" alt="">

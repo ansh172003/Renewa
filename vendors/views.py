@@ -241,7 +241,7 @@ def analysis(data):
     a = []
     veg_percentage, cuisine_preferences, food_item_preferences = analyze_residents_likes(data)
     
-    a.append("Veg percentage: {:.2f}%".format(veg_percentage))
+    a.append("Veg percentage:{:.2f}%".format(veg_percentage))
     a.append("\nCuisine preferences:")
     for cuisine, percentage in cuisine_preferences.items():
         a.append("\n- {}: {:.2f}%".format(cuisine, percentage))
