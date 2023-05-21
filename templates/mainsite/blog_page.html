@@ -33,9 +33,10 @@
         <div class="container blog-cont flex">
 
             <div class="left-blog">
-                <div class="card-area flex">
-                <a href="" class="blogcard-achor">
     {% for blog in blogs %}
+
+                <div class="card-area flex">
+                <a href="{% url 'blog_detail' blog.id %}" class="blogcard-achor">
 
                     <div class="blogcard flex">
                         <div class="left-blogcard">

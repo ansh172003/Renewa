@@ -3,7 +3,16 @@ from .models import BlogModel
 from django.contrib import messages
 from .forms import Imageupload
 from django.shortcuts import get_object_or_404
+import openai
 
+def askGPT(items):
+
+    openai.api_key = "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"
+    prompt = "Here is the list of my leftovers items, suggest me a indian easy to make recipe that I can make using these leftovers" + items
+    chat = openai.Completion.create( engine = "text-davinci-003", prompt = prompt, max_tokens = 1024, n=1, stop=None, temperature=0.5)
+    
+    reply = chat.choices[0].text
+    return reply
 
 # Create your views here.
 
@@ -28,7 +37,7 @@ def blog_detail(request, id):
     data = {
         'detail':detail,
     }
-    return render(request,"mainsite/blog_solo.html",data)
+    return render(request,"mainsite/blog-solo.html",data)
 
     
 def blogwrite(request):
@@ -65,6 +74,13 @@ def food(request):
     
 
 def recipe(request):
+    if request.method == 'POST':
+        recipe = request.POST['recipe']
+        output = askGPT(recipe)
+        data = {
+            'recipe':recipe
+        }
+        return render(request,'mainsite/recipe_output.html',data)
     return render(request,'mainsite/recipe.html')
     
 def food_card(request):

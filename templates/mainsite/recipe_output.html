@@ -1,0 +1,63 @@
+
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="{% static './css/recipe.css' %}">
+
+
+</head>
+<body>
+<nav>
+    <div class="container navbar flex">
+        <div class="left-nav">
+            <h2><a href="{% url 'home' %}" class="font" href="">Renewa</a></h2>
+        </div>
+        <div class="mid-nav">
+            <ul class="flex">
+                <li><a href="{% url 'blog' %}" class="hover-link underline"><i class="fa-sharp fa-solid fa-square-rss"></i> Blog</a></li>
+                <li><a href="{% url 'food' %}" class="hover-link underline"><i class="fa-solid fa-bowl-food"></i> Food</a></li>
+                <li><a href="" class="hover-link underline"><i class="fa-solid fa-cart-shopping"></i> Groceries</a></li>
+                <li><a href="{% url 'recipe' %}" class="hover-link underline"><i class="fa-solid fa-mortar-pestle"></i> Recipe</a></li>
+                <li><a href="{% url 'donate' %}" class="hover-link underline"><i class="fa-solid fa-heart"></i> Donate</a></li>
+            </ul>
+        </div>
+        {% if user.is_authenticated %}
+        <div class="right-nav">
+            <a href="{% url 'logout' %}">Logout</a>
+        </div>
+        {% else %}
+        <div class="right-nav">
+            <a href="{% url 'login' %}">Login</a>
+        </div>
+        {% endif %}
+    </div>
+</nav>
+    <section class="recipe">
+        <div class="container reciep-cont flex">
+            <div class="leftrecipe">
+                <div class="heading">
+                    <h1>Tell us what you got?</h1>
+                </div>
+                <div class="ingridients ">
+                    <p>{{ recipe }}</p>
+                    <!-- <form action="POST" class="flex">
+                        <textarea name="recipe" class="ingri" rows="5"></textarea>
+                        <div class="buttonSubmit">
+                            <button>Submit</button>
+                        </div>
+                    </form> -->
+                </div>
+            </div>
+            <div class="rightrecipe">
+                <img src="{% static './images/img.png' %}" alt="">
+            </div>
+        </div>
+    </section>
+</body>
+<script src="https://kit.fontawesome.com/b5a8447ad3.js" crossorigin="anonymous"></script>
+
+</html>
