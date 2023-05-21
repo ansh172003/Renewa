@@ -18,14 +18,20 @@
                 <ul class="flex">
                     <li><a href="{% url 'blog' %}" class="hover-link underline"><i class="fa-sharp fa-solid fa-square-rss"></i> Blog</a></li>
                     <li><a href="{% url 'food' %}" class="hover-link underline"><i class="fa-solid fa-bowl-food"></i> Food</a></li>
-                    <li><a href="" class="hover-link underline"><i class="fa-solid fa-cart-shopping"></i> Groceries</a></li>
+                    <li><a href="{% url 'grocery_card' %}" class="hover-link underline"><i class="fa-solid fa-cart-shopping"></i> Groceries</a></li>
                     <li><a href="{% url 'recipe' %}" class="hover-link underline"><i class="fa-solid fa-mortar-pestle"></i> Recipe</a></li>
                     <li><a href="{% url 'donate' %}" class="hover-link underline"><i class="fa-solid fa-heart"></i> Donate</a></li>
                 </ul>
             </div>
+            {% if user.is_authenticated %}
             <div class="right-nav">
-                <a href="">Login</a>
+                <a href="{% url 'logout' %}">Logout</a>
             </div>
+            {% else %}
+            <div class="right-nav">
+                <a href="{% url 'login' %}">Login</a>
+            </div>
+            {% endif %}
         </div>
     </nav>
     <section class="blog-card-sec">
@@ -33,9 +39,10 @@
         <div class="container blog-cont flex">
 
             <div class="left-blog">
-    {% for blog in blogs %}
 
                 <div class="card-area flex">
+    {% for blog in blogs %}
+
                 <a href="{% url 'blog_detail' blog.id %}" class="blogcard-achor">
 
                     <div class="blogcard flex">
@@ -51,9 +58,10 @@
                         </div>
                     </div>
                 </a>
+            {% endfor %}
+
                 </div>
             </div>
-            {% endfor %}
             <div class="right-blog">
                <div class="headers">
                 <h2>Tips</h2>

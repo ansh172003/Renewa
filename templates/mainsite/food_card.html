@@ -19,7 +19,7 @@
                 <ul class="flex">
                     <li><a href="{% url 'blog' %}" class="hover-link underline"><i class="fa-sharp fa-solid fa-square-rss"></i> Blog</a></li>
                     <li><a href="{% url 'food' %}" class="hover-link underline"><i class="fa-solid fa-bowl-food"></i> Food</a></li>
-                    <li><a href="" class="hover-link underline"><i class="fa-solid fa-cart-shopping"></i> Groceries</a></li>
+                    <li><a href="{% url 'grocery_card' %}" class="hover-link underline"><i class="fa-solid fa-cart-shopping"></i> Groceries</a></li>
                     <li><a href="{% url 'recipe' %}" class="hover-link underline"><i class="fa-solid fa-mortar-pestle"></i> Recipe</a></li>
                     <li><a href="{% url 'donate' %}" class="hover-link underline"><i class="fa-solid fa-heart"></i> Donate</a></li>
                 </ul>
@@ -35,21 +35,33 @@
             {% endif %}
         </div>
     </nav>
+
     <section class="product">
+
         <div class="container product-cont flex">
+
+
             <div class="product-card-area flex">
-                <a href="" class="product-card">
-                    <div>
-                    <img src="/static/images/img.png" alt="">
-                    <h2>Title</h2>
-                    <h3>10000</h3>
-                    </div>
+                {% for food in foods %}
+
+                <a href="{% url 'singlefood' food.id  %}" class="product-card">
+                   
+                    <img src="{{ food.image.url }}" alt="">
+                    <h2>{{ food.title }}</h2>
+                    <h3>{{ food.price }}</h3>
+                   
                 </a>
+                {% endfor %}
+
                 
-                
+            </div>
+
             
         </div>
+
+
     </section>
+
 </body>
 <script src="https://kit.fontawesome.com/b5a8447ad3.js" crossorigin="anonymous"></script>
 </html>

@@ -13,5 +13,14 @@ class BlogModel(models.Model):
     created_date = models.DateTimeField(default = datetime.now, blank=True)
     # user = User.username
 
+class NightFood(models.Model):
+    image = models.ImageField(upload_to='media/slider/%Y/%m', blank=True)
+    title = models.TextField(max_length=255)
+    price = models.TextField(max_length=255)
+
+class Grocery(models.Model):
+    image = models.ImageField(upload_to='media/slider/%Y/%m', blank=True)
+    title = models.TextField(max_length=255)
+    price = models.TextField(max_length=255)
 # class RewardPoints(models.Model):
 #     user = 

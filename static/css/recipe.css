@@ -106,6 +106,8 @@ ul{
 .right-nav{
     text-align: center;
     background-color: var(--green1);
+    /* background-image: url(/static/images/asset32.png); */
+
     padding: 12px;
     border-radius: 120px;
 }
@@ -163,6 +165,9 @@ form textarea{
     width: 70%;
     height: 100%;
     background-color: var(--green1);
+    background-image: url(/static/images/asset32.png);
+    background-size: cover;
+
     padding: 35px;
     border-top-left-radius: 15px;
     border-bottom-left-radius : 15px;

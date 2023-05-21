@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from .models import BlogModel
+from django.shortcuts import render, redirect
+from .models import BlogModel, NightFood, Grocery
 from django.contrib import messages
 from .forms import Imageupload
 from django.shortcuts import get_object_or_404
@@ -7,7 +7,7 @@ import openai
 
 def askGPT(items):
 
-    openai.api_key = "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"
+    openai.api_key = "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"
     prompt = "Here is the list of my leftovers items, suggest me a indian easy to make recipe that I can make using these leftovers" + items
     chat = openai.Completion.create( engine = "text-davinci-003", prompt = prompt, max_tokens = 1024, n=1, stop=None, temperature=0.5)
     
@@ -56,6 +56,7 @@ def blogwrite(request):
                 image = file,
         )
         new_file.save()
+        return redirect('blogs')
         # form = Imageupload(request.FILES)
         
         # image = form.cleaned_data.get("image")
@@ -64,7 +65,7 @@ def blogwrite(request):
 
         # blogmodel = BlogModel(title=title, content=content, image=image)
         # blogmodel.save()
-        messages.success(request,'Thanks for reaching out! Will contact you soon.')
+        # messages.success(request,'Thanks for reaching out! Will contact you soon.')
 
         # print(image)
     
@@ -77,9 +78,9 @@ def food(request):
 def recipe(request):
     if request.method == 'POST':
         recipe = request.POST['recipe']
-        print(recipe)
+        # print(recipe)
         if recipe:
-            output = askGPT('garlic, onion, tomato')
+            output = askGPT(recipe)
             data = {
                 'output':output
             }
@@ -91,7 +92,37 @@ def recipe_output(request):
     return render(request,'mainsite/recipe_output.html')
 
 def food_card(request):
-    return render(request,'mainsite/food_card.html')
+    foods = NightFood.objects.all()
+    data={
+        'foods':foods,
+
+    }
+    return render(request,'mainsite/food_card.html',data)
+
+def grocery_card(request):
+    groceries = Grocery.objects.all()
+    data={
+        'groceries':groceries,
+
+    }
+    return render(request,'mainsite/grocery_card.html',data)
+
+def singlegrocery(request, id):
+    detail = get_object_or_404(Grocery, pk = id)
+    data = {
+        'detail':detail,
+    }
+    return render(request,"mainsite/single-grocery.html",data)
+
+
+
+def singlefood(request, id):
+    detail = get_object_or_404(NightFood, pk = id)
+    data = {
+        'detail':detail,
+    }
+    return render(request,"mainsite/single-food.html",data)
+
 
 def grocery(request):
     pass

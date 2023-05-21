@@ -1,4 +1,5 @@
 {% load static %}
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="{% static './css/landing.css' %}">
-    <link rel="stylesheet" href="{% static './css/blog-solo.css' %}">
+    <link rel="stylesheet" href="{% static './css/food_cadr.css' %}">
 </head>
 <body>
     <nav>
@@ -23,24 +24,44 @@
                     <li><a href="{% url 'donate' %}" class="hover-link underline"><i class="fa-solid fa-heart"></i> Donate</a></li>
                 </ul>
             </div>
+            {% if user.is_authenticated %}
             <div class="right-nav">
-                <a href="">Login</a>
+                <a href="{% url 'logout' %}">Logout</a>
             </div>
+            {% else %}
+            <div class="right-nav">
+                <a href="{% url 'login' %}">Login</a>
+            </div>
+            {% endif %}
         </div>
     </nav>
-    <section class="main-page">
-        <div class="container main-page-cont flex">
-            <div class="left-main">
-                <img src="{{ detail.image.url }}" alt="">
-            </div>
-            <div class="right-main">
-                <h1>{{ detail.title }}</h1>
-                <p>{{ detail.content }}</p>
-                <!-- <h3>{{ detail.user }}</h3> -->
-            </div>
-        </div>
-    </section>
-    </body>
-    <script src="https://kit.fontawesome.com/b5a8447ad3.js" crossorigin="anonymous"></script>
 
-    </html>
+    <section class="product">
+
+        <div class="container product-cont flex">
+
+
+            <div class="product-card-area flex">
+                {% for grocery in groceries %}
+
+                <a href="{% url 'singlegrocery' grocery.id  %}" class="product-card">
+                   
+                    <img src="{{ grocery.image.url }}" alt="">
+                    <h2>{{ grocery.title }}</h2>
+                    <h3>{{ grocery.price }}</h3>
+                   
+                </a>
+                {% endfor %}
+
+                
+            </div>
+
+            
+        </div>
+
+
+    </section>
+
+</body>
+<script src="https://kit.fontawesome.com/b5a8447ad3.js" crossorigin="anonymous"></script>
+</html>
