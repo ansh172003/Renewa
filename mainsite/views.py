@@ -12,6 +12,7 @@ def askGPT(items):
     chat = openai.Completion.create( engine = "text-davinci-003", prompt = prompt, max_tokens = 1024, n=1, stop=None, temperature=0.5)
     
     reply = chat.choices[0].text
+    print(reply)
     return reply
 
 # Create your views here.
@@ -76,13 +77,19 @@ def food(request):
 def recipe(request):
     if request.method == 'POST':
         recipe = request.POST['recipe']
-        output = askGPT(recipe)
-        data = {
-            'recipe':recipe
-        }
-        return render(request,'mainsite/recipe_output.html',data)
+        print(recipe)
+        if recipe:
+            output = askGPT('garlic, onion, tomato')
+            data = {
+                'output':output
+            }
+            return render(request,'mainsite/recipe_output.html',data)
+    
     return render(request,'mainsite/recipe.html')
     
+def recipe_output(request):
+    return render(request,'mainsite/recipe_output.html')
+
 def food_card(request):
     return render(request,'mainsite/food_card.html')
 

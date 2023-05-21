@@ -43,7 +43,8 @@
                     <h1>Tell us what you got?</h1>
                 </div>
                 <div class="ingridients ">
-                    <form action="" class="flex">
+                    <form method="POST" action="{% url 'recipe' %}" class="flex">
+                        {% csrf_token %}
                         <textarea name="recipe" class="ingri" rows="5"></textarea>
                         <div class="buttonSubmit">
                             <button>Submit</button>

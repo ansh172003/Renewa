@@ -9,6 +9,7 @@ django-ckeditor = "*"
 pillow = "*"
 django-froala-editor = "*"
 django-allauth = "*"
+openai = "*"
 
 [dev-packages]
 
