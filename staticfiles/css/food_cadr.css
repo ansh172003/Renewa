@@ -1,0 +1,31 @@
+.product{
+   padding-top: 100px;
+   
+}
+.product-cont{
+    justify-content: center;
+}
+.product-card img{
+    width: 100%;
+    border-top-left-radius: 11px;
+    border-top-right-radius :11px; ;
+}
+
+.product-card{
+    width :31%;
+    /* border: 2px solid; */
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 5px 8px #d4e6f6;
+}
+.product-card-area{
+    width: 100%;
+    gap: 40px;
+    flex-wrap: wrap;
+    padding: var(--padding-inline);
+    margin: var(--margine-cards);
+}
+.product-card:hover{
+    transform: scale(1.06);
+    transition: 0.5s all ease-in-out;
+}

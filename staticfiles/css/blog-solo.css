@@ -1,0 +1,26 @@
+
+nav{
+    position: relative;
+}
+.left-main img{
+    width: 100%;
+}
+.left-main{
+    width: 60%;
+}
+.main-page{
+    margin-top: 100px;
+}
+.right-main{
+    text-align: justify;
+    width: 40%;
+    padding: var(--padding-inline);
+}
+
+.main-page-cont{
+    justify-content: space-between;
+    gap: 10px;
+    align-items: center;
+    border: 2px solid;
+    border-radius: 15px;
+}
