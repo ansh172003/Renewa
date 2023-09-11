@@ -10,6 +10,7 @@ django-ckeditor<=6.5.1
 django-froala-editor<=4.0.19
 django-js-asset<=2.0.0
 dj-database-url<=2.1.0
+gunicorn<=21.2.0
 idna<=3.4
 oauthlib<=3.2.2
 Pillow<=9.5.0
