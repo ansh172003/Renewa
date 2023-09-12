@@ -1,0 +1,93 @@
+::-webkit-scrollbar {
+    width: 0px;
+}
+.left-blogcard{
+    width: 65%;
+    height: 100%;
+    padding: var(--padding-inline);
+    background-color: var(--green1);
+    background-image: url(/static/images/asset32.png);
+    background-size: cover;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+.left-blog p{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+.right-blogcard img{
+    width: 100%;
+    border-radius: 12px;
+}
+.right-blogcard{
+    
+    width: 30%;
+    padding: var(--padding-inline);
+}
+.blogcard{
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid;
+    border-radius: 12px;
+}
+.blogcard-achor{
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+.left-blog{
+    width: 65%;
+    overflow: hidden;
+    overflow-y:visible;
+    
+    height: calc(100vh - 90px)
+}
+.card-area{
+    flex-direction: column;
+    gap: 30px;
+}
+.blog-card-sec{
+    padding-top: 80px;
+}
+.right-blog{
+    width :30%;
+    overflow: hidden;
+    overflow-y:hidden;
+    height: calc(100vh - 90px);
+    border: 2px solid;
+}
+.blog-cont{
+    justify-content: space-between;
+}
+.right-blog{
+    overflow: hidden;
+    overflow-y: scroll;
+    border-radius: 12px;
+}
+.headers{
+    position: sticky;
+    top:0;
+    text-align: center;
+   background-color: #fefefe;
+    border-radius: 12px;
+}
+
+.tip-cont{
+    flex-direction: column;
+    gap: 20px;
+    padding: var(--padding-inline);
+
+    text-align: justify;
+}
+.whatsapp{
+    transform: scale(1.5);
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9000;
+    border-radius: 50%;
+    border: 2px solid;
+    padding: 10px;
+}
