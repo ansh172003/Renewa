@@ -32,5 +32,5 @@ urlpatterns = [
     path('socialaccounts/', include('allauth.urls')),
 
     # path('froala_editor/',include('froala_editor.urls'))
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
 urlpatterns += staticfiles_urlpatterns()
